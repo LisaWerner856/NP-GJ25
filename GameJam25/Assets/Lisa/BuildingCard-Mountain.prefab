@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 7746280786986409935}
   - component: {fileID: 6510150461212176240}
   m_Layer: 5
-  m_Name: BuildingCard
+  m_Name: BuildingCard-Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

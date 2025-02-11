@@ -13,7 +13,7 @@ public class BuildingCard : MonoBehaviour
 
     private void Start()
     {
-        image.color = Color.red;
+        image.sprite = buildingCardSO.buildingImage;
         buildingName.text = buildingCardSO.buildingName;
     }
 }

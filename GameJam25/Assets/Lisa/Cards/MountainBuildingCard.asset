@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MountainBuildingCard
   m_EditorClassIdentifier: 
   buildingName: Mountain
-  buildingPrefab: {fileID: 0}
+  buildingImage: {fileID: 834771140, guid: 4c281c96b03abd543bd77d7612da8c53, type: 3}
   width: 1
   height: 1
