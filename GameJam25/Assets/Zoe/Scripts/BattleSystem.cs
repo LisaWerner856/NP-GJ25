@@ -107,6 +107,19 @@ public class BattleSystem : MonoBehaviour
         dialogeText.text = "Take an action: attack or heal";
     }
 
+    IEnumerator PlayerHeal()
+    {
+        playerUnit.Heal(5);
+
+        playerHud.SetHp(playerUnit.currentHp);
+        dialogeText.text = " You feel a bit better. ";
+
+        yield return new WaitForSeconds(2f);
+
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+
     public void OnAttackButton()
     {
         if (state != BattleState.PLAYERTURN)
@@ -117,6 +130,8 @@ public class BattleSystem : MonoBehaviour
 
     public void OnHealButton()
     {
-
+        if (state != BattleState.PLAYERTURN)
+            return;
+        StartCoroutine(PlayerHeal());
     }
 }
