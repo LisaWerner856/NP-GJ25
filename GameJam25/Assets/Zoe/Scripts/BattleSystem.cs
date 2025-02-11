@@ -1,13 +1,14 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
 
     public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+    public GameObject[] prefabs = new GameObject[1];
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -24,6 +25,11 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
+
+        for (int p = 0; p < prefabs.Length; p++)
+        {
+            prefabs[p] = Resources.Load("Prefabs/Prefab" + p) as GameObject;
+        }
     }
 
     IEnumerator SetupBattle()
@@ -31,7 +37,7 @@ public class BattleSystem : MonoBehaviour
         GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGo.GetComponent<Unit>();
 
-        GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
+        GameObject enemyGo = Instantiate(prefabs[Random.Range(0, prefabs.Length)], enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
 
         dialogeText.text = " A " + enemyUnit.unitName + " aproaches. ";
