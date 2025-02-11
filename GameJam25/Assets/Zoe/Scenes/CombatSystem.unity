@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 345691310}
   - component: {fileID: 345691312}
   - component: {fileID: 345691311}
+  - component: {fileID: 345691313}
   m_Layer: 5
   m_Name: PlayerBattleHud
   m_TagString: Untagged
@@ -449,6 +450,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345691309}
   m_CullTransparentMesh: 1
+--- !u!114 &345691313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345691309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a4d3d9cd1c13e40a83aabfe1c900a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1526664419}
+  levelText: {fileID: 675635930}
+  hpSlider: {fileID: 1142789780}
 --- !u!1 &441211274
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +847,7 @@ GameObject:
   - component: {fileID: 642974956}
   - component: {fileID: 642974958}
   - component: {fileID: 642974957}
+  - component: {fileID: 642974959}
   m_Layer: 5
   m_Name: EnemyBattleHud
   m_TagString: Untagged
@@ -898,6 +915,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642974955}
   m_CullTransparentMesh: 1
+--- !u!114 &642974959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642974955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a4d3d9cd1c13e40a83aabfe1c900a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1975079872}
+  levelText: {fileID: 1319724305}
+  hpSlider: {fileID: 1542406483}
 --- !u!1 &675635928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1580,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3699811918420119265, guid: 41181da003f2d1e46979f57ffa6f536d, type: 3}
   playerBattleStation: {fileID: 344420041}
   enemyBattleStation: {fileID: 205671416}
+  playerHud: {fileID: 345691313}
+  enemyHud: {fileID: 642974959}
+  dialogeText: {fileID: 1129433512}
 --- !u!4 &1119045438
 Transform:
   m_ObjectHideFlags: 0
@@ -2698,7 +2733,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1630414965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1119045437}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnAttackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1630414965
 MonoBehaviour:
   m_ObjectHideFlags: 0
