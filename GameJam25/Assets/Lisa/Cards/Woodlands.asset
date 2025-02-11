@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Woodlands
   description: Wild creatures live in these woodlands
   image: {fileID: 0}
-  manaCost: 5
-  damage: 10
+  manaCost: 0
+  damage: 0
