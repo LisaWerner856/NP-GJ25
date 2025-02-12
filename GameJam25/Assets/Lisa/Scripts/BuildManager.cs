@@ -9,7 +9,6 @@ public class BuildManager : MonoBehaviour
     public List<GameObject> cards;
     public List<GameObject> UICards;
 
-    public Dictionary<string, int> buildingCardsInventory;
 
     public int selectedCard = 0; // this should be based on the cards in the inventory later.
 
@@ -23,11 +22,11 @@ public class BuildManager : MonoBehaviour
         foreach (GameObject card in cards)
         {
             GameObject UICard = Instantiate(card);
+            UICard.GetComponent<BuildingCard>().cardIndex = i;
             UICard.transform.SetParent(cardGridUI);
             UICard.transform.localScale = new Vector3(1f, 1f, 1f);
 
             UICards.Add(UICard);
-            buildingCardsInventory.Add(card.name, 1);
 
             i++;
         }
@@ -76,8 +75,9 @@ public class BuildManager : MonoBehaviour
         renderer.sprite = cards[selectedCard].GetComponent<BuildingCard>().buildingTile.sprite;  // Assuming buildingTile has a sprite
     }
 
-    public void PlaceCard()
+    public void PlaceCard(int index)
     {
+        selectedCard = index;
         if(tilePreview == null)
         {
             PreviewCard(Camera.main.ScreenToWorldPoint(Input.mousePosition));

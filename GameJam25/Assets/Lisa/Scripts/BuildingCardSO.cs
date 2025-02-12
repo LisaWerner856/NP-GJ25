@@ -8,4 +8,5 @@ public class BuildingCardSO : ScriptableObject
 
     public int width;
     public int height;
+
 }

@@ -10,6 +10,9 @@ public class BuildingCard : MonoBehaviour
     // Reference to the build manager
     private BuildManager bm;
 
+    // Card Index, used to reference the selected card
+    public int cardIndex;
+
     // Card UI Things 
     public TMP_Text buildingName;
     public Image image;
@@ -35,11 +38,16 @@ public class BuildingCard : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        //transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+        transform.localScale = new Vector3(1.2f, 1.2f, 1f);
     }
+    private void OnMouseExit()
+    {
+        transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
     public void OnCardClick()
     {
-        bm.PlaceCard();
+        bm.PlaceCard(cardIndex);
     }
 }
 
