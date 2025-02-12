@@ -49,6 +49,9 @@ MonoBehaviour:
   - {fileID: 8495236731432768142, guid: c76782456a114144a8b4bf54b0b974ed, type: 3}
   - {fileID: 8495236731432768142, guid: c76782456a114144a8b4bf54b0b974ed, type: 3}
   - {fileID: 1170879374442085415, guid: 9652cf4867c1ac14e8e96b02bf5e0ac9, type: 3}
+  - {fileID: 1170879374442085415, guid: 9652cf4867c1ac14e8e96b02bf5e0ac9, type: 3}
+  - {fileID: 1170879374442085415, guid: 9652cf4867c1ac14e8e96b02bf5e0ac9, type: 3}
+  - {fileID: 1170879374442085415, guid: 9652cf4867c1ac14e8e96b02bf5e0ac9, type: 3}
   UICards: []
   selectedCard: 0
   cardGridUI: {fileID: 0}

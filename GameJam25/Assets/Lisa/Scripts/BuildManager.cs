@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
@@ -58,9 +59,10 @@ public class BuildManager : MonoBehaviour
     public void RenderUITiles()
     {
         int i = 0;
-        foreach (GameObject tile in UICards)
+        foreach (GameObject card in UICards)
         {
-            tile.transform.localScale = new Vector3(1f, 1f, 1f);
+            card.transform.localScale = new Vector3(1f, 1f, 1f);
+            card.GetComponent<BuildingCard>().cardIndex = i;
             i++;
         }
     }
@@ -81,9 +83,7 @@ public class BuildManager : MonoBehaviour
         if(tilePreview == null)
         {
             PreviewCard(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
-
-       
+        }       
     }
 
     public void RemoveCardFromList(int cardIndex)

@@ -1640,13 +1640,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 801727992}
     - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
-      propertyPath: tilePreview
+      propertyPath: 'cards.Array.data[4]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7320351479463527075, guid: d22a1899531d0e748bd741fb3fdc1bf1, type: 3}
     - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
-      propertyPath: UICards.Array.size
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: 'cards.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7320351479463527075, guid: d22a1899531d0e748bd741fb3fdc1bf1, type: 3}
     - target: {fileID: 9106369441253348412, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
       propertyPath: m_Name
       value: BuildManager
