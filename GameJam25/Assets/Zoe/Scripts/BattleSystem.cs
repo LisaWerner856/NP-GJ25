@@ -2,7 +2,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
+using UnityEngine.SceneManagement;
+public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST}
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
@@ -31,6 +32,7 @@ public class BattleSystem : MonoBehaviour
             prefabs[p] = Resources.Load("Prefabs/Prefab" + p) as GameObject;
         }
     }
+
 
     IEnumerator SetupBattle()
     {
@@ -63,7 +65,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         { 
             state = BattleState.WON;
-            EndBatlle();
+            StartCoroutine(EndBatlle());
         }
         else
         {
@@ -72,15 +74,21 @@ public class BattleSystem : MonoBehaviour
         }
     }
     
-    void EndBatlle()
+    IEnumerator EndBatlle()
     {
         if (state == BattleState.WON)
         {
             dialogeText.text = " You won the battle!!! ";
+
+            yield return new WaitForSeconds(2f);
+
+            SceneManager.LoadScene(sceneName: "LoopScene");
         }
         else if (state == BattleState.LOST)
         {
             dialogeText.text = " You were defeated ";
+
+            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -99,7 +107,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBatlle();
+            StartCoroutine(EndBatlle());
         }
         else
         {

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Monkey
   unitLevel: 1
-  damage: 2
+  damage: 5
   maxHp: 20
   currentHp: 20
 --- !u!1 &8023080997865731713
