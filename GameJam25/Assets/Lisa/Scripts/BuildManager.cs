@@ -9,6 +9,8 @@ public class BuildManager : MonoBehaviour
     public List<GameObject> cards;
     public List<GameObject> UICards;
 
+    //public Dictionary<string, int> buildingCardsInventory;
+
     public int selectedCard = 0; // this should be based on the cards in the inventory later.
 
     public Transform cardGridUI;
@@ -38,7 +40,6 @@ public class BuildManager : MonoBehaviour
             
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Pressed left mouse button");
                 Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 tilemap.SetTile(tilemap.WorldToCell(position), cards[selectedCard].GetComponent<BuildingCard>().buildingTile);
@@ -50,6 +51,8 @@ public class BuildManager : MonoBehaviour
                 Destroy(tilePreview);
             }
         }
+
+        // TODO: If a new card was added, update the ui;
     }
     public void RenderUITiles()
     {

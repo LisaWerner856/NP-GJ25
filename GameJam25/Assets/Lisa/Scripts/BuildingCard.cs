@@ -10,15 +10,17 @@ public class BuildingCard : MonoBehaviour
     // Reference to the build manager
     public BuildManager bm;
 
+    // Card UI Things 
     public TMP_Text buildingName;
-
     public Image image;
 
-    public BuildingCardSO buildingCardSO; // Building Card scriptable object
+    // Reference to the scriptable object, to get the data from
+    public BuildingCardSO buildingCardSO;
 
     public int tileWidth;
     public int tileHeight;
 
+    // Reference to the actual tile being built. Has to be set manually because I'm very good at programming, yes
     public Tile buildingTile;
 
     private void Awake()
@@ -33,12 +35,7 @@ public class BuildingCard : MonoBehaviour
 
     public void OnCardClick()
     {
-        Debug.Log($"Button clicked! and {bm.tilePreview} ");
-
-        //if (bm.tilePreview != null)
-        //{
-            bm.PlaceCard();
-        //}
+        bm.PlaceCard();
     }
 }
 
