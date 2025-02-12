@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class BuildingCard : MonoBehaviour
 {
     // Reference to the build manager
-    public BuildManager bm;
+    private BuildManager bm;
 
     // Card UI Things 
     public TMP_Text buildingName;

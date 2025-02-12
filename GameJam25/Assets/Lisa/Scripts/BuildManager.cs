@@ -19,18 +19,18 @@ public class BuildManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //int i = 0;
-        //foreach (GameObject card in cards)
-        //{
-        //    GameObject UICard = Instantiate(card);
-        //    UICard.transform.SetParent(cardGridUI);
-        //    UICard.transform.localScale = new Vector3(1f, 1f, 1f);
+        int i = 0;
+        foreach (GameObject card in cards)
+        {
+            GameObject UICard = Instantiate(card);
+            UICard.transform.SetParent(cardGridUI);
+            UICard.transform.localScale = new Vector3(1f, 1f, 1f);
 
-        //    UICards.Add(UICard);
+            UICards.Add(UICard);
 
-        //    i++;
-        //}
-        RenderUITiles();
+            i++;
+        }
+        //RenderUITiles();
     }
     private void Update()
     {
