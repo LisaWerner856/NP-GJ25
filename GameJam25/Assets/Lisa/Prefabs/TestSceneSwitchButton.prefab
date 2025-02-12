@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1111131621454550394}
   - component: {fileID: 6189030206588187213}
   m_Layer: 5
-  m_Name: FIGHT
+  m_Name: TestSceneSwitchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

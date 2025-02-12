@@ -27,6 +27,7 @@ public class BuildManager : MonoBehaviour
             UICard.transform.localScale = new Vector3(1f, 1f, 1f);
 
             UICards.Add(UICard);
+            buildingCardsInventory.Add(card.name, 1);
 
             i++;
         }
