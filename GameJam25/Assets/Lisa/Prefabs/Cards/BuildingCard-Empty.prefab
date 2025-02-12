@@ -167,7 +167,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 18
   m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -243,10 +243,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3076919198203247406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5474762}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -28.5822}
-  m_SizeDelta: {x: -30, y: 22.2478}
+  m_AnchorMin: {x: 0, y: 0.42649126}
+  m_AnchorMax: {x: 1, y: 0.93466085}
+  m_AnchoredPosition: {x: -0.3506012, y: 0.0716095}
+  m_SizeDelta: {x: -22.5674, y: -0.044700623}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8764241830661463633
 CanvasRenderer:
@@ -324,7 +324,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 320, y: 420}
+  m_SizeDelta: {x: 125.7937, y: 165.1042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3219416079551070112
 MonoBehaviour:
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc2e6a4c7c9a184b8b326253903fcb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bm: {fileID: 0}
   buildingName: {fileID: 1733547123661555487}
   image: {fileID: 3292782929815593412}
   buildingCardSO: {fileID: 0}

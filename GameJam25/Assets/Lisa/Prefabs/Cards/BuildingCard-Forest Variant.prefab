@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3671563691388507958
+--- !u!1001 &2487741367869261595
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,6 +8,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 667417050892821418, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_Name
+      value: CardImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962227277873042783, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.88900006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962227277873042783, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.344
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962227277873042783, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1.206
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962227277873042783, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.000011444
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962227277873042783, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.6029968
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019614797368293814, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 094903014be31cd40b942efb4653e3f6, type: 3}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -34,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 320
+      value: 125.7937
       objectReference: {fileID: 0}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 420
+      value: 165.1042
       objectReference: {fileID: 0}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -222
       objectReference: {fileID: 0}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -258
       objectReference: {fileID: 0}
     - target: {fileID: 3076919198203247406, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -91,14 +119,26 @@ PrefabInstance:
     - target: {fileID: 3219416079551070112, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: buildingTile
       value: 
-      objectReference: {fileID: 11400000, guid: 9386cf365cd5aa844ad63f2738d5a33e, type: 2}
+      objectReference: {fileID: 11400000, guid: adef580abba2cc6409c16b30ffd83996, type: 2}
     - target: {fileID: 3219416079551070112, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: buildingCardSO
       value: 
-      objectReference: {fileID: 11400000, guid: 7ac35e4faaadfaa46927ef3c12ffc7f3, type: 2}
+      objectReference: {fileID: 11400000, guid: 0d109dfdafdf4e44e8537796a73b9531, type: 2}
+    - target: {fileID: 3540326101138048303, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.07159424
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648600688528067814, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_Name
+      value: CardName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520673648312287064, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
+      propertyPath: m_Name
+      value: IconImage
+      objectReference: {fileID: 0}
     - target: {fileID: 6296911183035422101, guid: 6996b0db4caa5f54192c2a7c13767a04, type: 3}
       propertyPath: m_Name
-      value: BuildingCard-Empty Variant
+      value: BuildingCard-Forest Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

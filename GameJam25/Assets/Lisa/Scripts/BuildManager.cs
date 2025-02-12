@@ -9,7 +9,7 @@ public class BuildManager : MonoBehaviour
     public List<GameObject> cards;
     public List<GameObject> UICards;
 
-    //public Dictionary<string, int> buildingCardsInventory;
+    public Dictionary<string, int> buildingCardsInventory;
 
     public int selectedCard = 0; // this should be based on the cards in the inventory later.
 
@@ -19,17 +19,18 @@ public class BuildManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int i = 0;
-        foreach (GameObject card in cards)
-        {
-            GameObject UICard = Instantiate(card);
-            UICard.transform.SetParent(cardGridUI);
-            UICard.transform.localScale = new Vector3(1f, 1f, 1f);
+        //int i = 0;
+        //foreach (GameObject card in cards)
+        //{
+        //    GameObject UICard = Instantiate(card);
+        //    UICard.transform.SetParent(cardGridUI);
+        //    UICard.transform.localScale = new Vector3(1f, 1f, 1f);
 
-            UICards.Add(UICard);
+        //    UICards.Add(UICard);
 
-            i++;
-        }
+        //    i++;
+        //}
+        RenderUITiles();
     }
     private void Update()
     {
