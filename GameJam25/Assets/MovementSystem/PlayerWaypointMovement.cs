@@ -34,10 +34,6 @@ public class PlayerWaypointMovement : MonoBehaviour
         {
             MoventStops();
         }
-        else if (battleSystem.normalCanvas == true)
-        {
-            OnPlayPress();
-        }
 
         if (waypoints.Length == 0) return;
 
