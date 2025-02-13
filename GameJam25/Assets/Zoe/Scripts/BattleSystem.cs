@@ -2,13 +2,16 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
+using UnityEngine.SceneManagement;
+public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST, SETUP}
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
 
     public GameObject playerPrefab;
-    public GameObject[] prefabs = new GameObject[1];
+    public GameObject[] prefabs;
+    public GameObject battleCanvas;
+    public GameObject normalCanvas;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -22,23 +25,31 @@ public class BattleSystem : MonoBehaviour
     public TMP_Text dialogeText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        state = BattleState.START;
-        StartCoroutine(SetupBattle());
+    { 
+        state = BattleState.INACTIVE;
 
-        for (int p = 0; p < prefabs.Length; p++)
+        normalCanvas.SetActive(true);
+        battleCanvas.SetActive(false);
+        
+    }
+
+    public void Update()
+    {
+        if (state == BattleState.START)
         {
-            prefabs[p] = Resources.Load("Prefabs/Prefab" + p) as GameObject;
+            StartCoroutine(SetupBattle());
+            state = BattleState.SETUP;
         }
     }
 
-    IEnumerator SetupBattle()
+    public IEnumerator SetupBattle()
     {
         GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGo.GetComponent<Unit>();
-
+        print(playerUnit.name);
         GameObject enemyGo = Instantiate(prefabs[Random.Range(0, prefabs.Length)], enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
+        print(enemyUnit.name);
 
         dialogeText.text = " A " + enemyUnit.unitName + " aproaches. ";
 
@@ -63,7 +74,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         { 
             state = BattleState.WON;
-            EndBatlle();
+            StartCoroutine(EndBatlle());
         }
         else
         {
@@ -72,15 +83,22 @@ public class BattleSystem : MonoBehaviour
         }
     }
     
-    void EndBatlle()
+    IEnumerator EndBatlle()
     {
         if (state == BattleState.WON)
         {
             dialogeText.text = " You won the battle!!! ";
+
+            yield return new WaitForSeconds(2f);
+            state = BattleState.INACTIVE;
+            battleCanvas.SetActive(false);
+            normalCanvas.SetActive(true);
         }
         else if (state == BattleState.LOST)
         {
             dialogeText.text = " You were defeated ";
+
+            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -99,7 +117,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBatlle();
+            StartCoroutine(EndBatlle());
         }
         else
         {
