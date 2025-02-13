@@ -19,19 +19,7 @@ public class BuildManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int i = 0;
-        foreach (GameObject card in cards)
-        {
-            GameObject UICard = Instantiate(card);
-            UICard.GetComponent<BuildingCard>().cardIndex = i;
-            UICard.transform.SetParent(cardGridUI);
-            UICard.transform.localScale = new Vector3(1f, 1f, 1f);
-
-            UICards.Add(UICard);
-
-            i++;
-        }
-        //RenderUITiles();
+        AddMultipleCards();
     }
     private void Update()
     {
@@ -54,7 +42,41 @@ public class BuildManager : MonoBehaviour
             }
         }
 
+        // if the cards list doesn't have the same count as the ui element list, update the ui (draw the whole thing again)
+        if(cards.Count != UICards.Count)
+        {
+            int lastIndex = UICards.Count - 1;
+            AddSingleCard(cards[lastIndex]);
+        }
+
         // TODO: If a new card was added, update the ui;
+    }
+
+    private void AddMultipleCards()
+    {
+        int i = 0;
+
+        foreach (GameObject card in cards)
+        {
+            GameObject UICard = Instantiate(card);
+            UICard.GetComponent<BuildingCard>().cardIndex = i;
+            UICard.transform.SetParent(cardGridUI);
+            UICard.transform.localScale = new Vector3(1f, 1f, 1f);
+
+            UICards.Add(UICard);
+
+            i++;
+        }
+    }
+
+    public void AddSingleCard(GameObject card)
+    {
+        GameObject UICard = Instantiate(card);
+        UICard.GetComponent<BuildingCard>().cardIndex = cards.Count - 1;
+        UICard.transform.SetParent(cardGridUI);
+        UICard.transform.localScale = new Vector3(1f, 1f, 1f);
+
+        UICards.Add(UICard);
     }
     public void RenderUITiles()
     {
@@ -89,7 +111,6 @@ public class BuildManager : MonoBehaviour
     public void RemoveCardFromList(int cardIndex)
     {
         // Remove the card from both the cards list and the UI list
-        Debug.Log($"{cardIndex} cardindex | {cards.Count} cardsCount | {UICards.Count} uiCardsCount");
         if (cardIndex >= 0 && cardIndex < cards.Count)
         {
             cards.RemoveAt(cardIndex);

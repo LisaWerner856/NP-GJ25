@@ -35,16 +35,6 @@ public class BuildingCard : MonoBehaviour
         image.sprite = buildingCardSO.buildingImage;
         buildingName.text = buildingCardSO.buildingName;
     }
-
-    private void OnMouseEnter()
-    {
-        transform.localScale = new Vector3(1.2f, 1.2f, 1f);
-    }
-    private void OnMouseExit()
-    {
-        transform.localScale = new Vector3(1f, 1f, 1f);
-    }
-
     public void OnCardClick()
     {
         bm.PlaceCard(cardIndex);
