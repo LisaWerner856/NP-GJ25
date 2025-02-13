@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000006d5d6b47493b9d1b95f04fa467ea59a4d1bb49d0
+  m_ApplyToSortingLayers: 000000006d5d6b47493b9d1b95f04fa467ea59a4d1bb49d007679a1e
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -945,6 +945,7 @@ GameObject:
   - component: {fileID: 911969482}
   - component: {fileID: 911969481}
   - component: {fileID: 911969480}
+  - component: {fileID: 911969483}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1055,6 +1056,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911969483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911969479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1358945dc4b314544b51f65ffa8fe703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  unitLevel: 1
+  damage: 5
+  maxHp: 10
+  currentHp: 10
 --- !u!1 &1021746859
 GameObject:
   m_ObjectHideFlags: 0

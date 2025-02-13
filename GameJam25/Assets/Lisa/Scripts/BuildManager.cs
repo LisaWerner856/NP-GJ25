@@ -105,7 +105,23 @@ public class BuildManager : MonoBehaviour
         if(tilePreview == null)
         {
             PreviewCard(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }       
+        }
+
+        Debug.Log($"{UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName}");
+
+        //if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Forest")
+        //{
+        //    UICards[selectedCard].GetComponent<BuildingCard>().CardEffectForest();
+        //}
+        //else if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Mountain")
+        //{
+        //    UICards[selectedCard].GetComponent<BuildingCard>().CardEffectMountain();
+        //}
+        //else if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Water")
+        //{
+        //    UICards[selectedCard].GetComponent<BuildingCard>().CardEffectWater();
+        //}
+
     }
 
     public void RemoveCardFromList(int cardIndex)
