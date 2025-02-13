@@ -7,11 +7,17 @@ public class PlayerWaypointMovement : MonoBehaviour
     private int currentWaypointIndex = 0;
     public float currentSpeed;
 
+    //Voor het pauseren van de player//
+    public BattleSystem battleSystem;
     void Start()
     {
         currentSpeed = speed;
     }
 
+    public void MoventStops()
+    {
+        currentSpeed = 0f;
+    }
     public void OnPausePress()
     {
         currentSpeed = 0f;
@@ -24,7 +30,15 @@ public class PlayerWaypointMovement : MonoBehaviour
 
     void Update()
     {
-        
+        if (battleSystem.normalCanvas == false)
+        {
+            MoventStops();
+        }
+        else if (battleSystem.normalCanvas == true)
+        {
+            OnPlayPress();
+        }
+
         if (waypoints.Length == 0) return;
 
         Transform targetWaypoint = waypoints[currentWaypointIndex];
