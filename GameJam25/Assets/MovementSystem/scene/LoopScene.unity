@@ -1146,6 +1146,7 @@ MonoBehaviour:
   - {fileID: 434498042}
   speed: 2
   currentSpeed: 0
+  battleSystem: {fileID: 1926490856}
 --- !u!212 &911969481
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3173,7 +3174,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 719922722775935333, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1131967844768080448, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_Camera
@@ -3277,7 +3278,7 @@ PrefabInstance:
       objectReference: {fileID: 1926490856}
     - target: {fileID: 3407722739531620811, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4410857799061341140, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_Name
@@ -3285,7 +3286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4410857799061341140, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4701160383473248478, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3293,11 +3294,11 @@ PrefabInstance:
       objectReference: {fileID: 1926490856}
     - target: {fileID: 4929649706335538362, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6144735371067234412, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6833223337157093296, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchoredPosition.x
