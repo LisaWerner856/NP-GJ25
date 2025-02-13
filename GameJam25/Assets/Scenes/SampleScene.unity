@@ -672,8 +672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 54.991, y: 213}
-  m_SizeDelta: {x: -1325, y: -660}
+  m_AnchoredPosition: {x: 72, y: 219.3678}
+  m_SizeDelta: {x: -1252.304, y: -639.2079}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &601132892
 MonoBehaviour:
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Title
+  m_text: Voordurende Reis
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0690124403409794e88973dbac4c6bc5, type: 2}
   m_sharedMaterial: {fileID: -6991435970616985946, guid: 0690124403409794e88973dbac4c6bc5, type: 2}
@@ -1138,8 +1138,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quite
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0690124403409794e88973dbac4c6bc5, type: 2}
   m_sharedMaterial: {fileID: -6991435970616985946, guid: 0690124403409794e88973dbac4c6bc5, type: 2}
