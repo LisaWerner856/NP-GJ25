@@ -6,7 +6,6 @@ public class BuildingCardSO : ScriptableObject
     public string buildingName;
     public Sprite buildingImage;
 
-    public int width;
-    public int height;
+    public int effectValue;
 
 }

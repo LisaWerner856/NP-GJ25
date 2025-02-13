@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 [System.Serializable]
 public class BuildingCard : MonoBehaviour
@@ -40,28 +41,29 @@ public class BuildingCard : MonoBehaviour
         bm.PlaceCard(cardIndex);
     }
 
-    public void CardEffectForest(int value = 10)
+    public void CardEffectForest(GameObject playerRef)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(player);
-        ////Forest Building Card: hogere base HP
-        player.GetComponent<Unit>().maxHp += value;
+        // Forest Building Card: hogere base HP
         Debug.Log("Forest effect called!");
+        Debug.Log($"Player HP before effect: {playerRef.GetComponent<Unit>().maxHp}");
+        playerRef.GetComponent<Unit>().maxHp += buildingCardSO.effectValue;
+        Debug.Log($"Player HP after effect: {playerRef.GetComponent<Unit>().maxHp}");
     }
 
-    public void CardEffectMountain(int value = 10)
+    public void CardEffectMountain(GameObject playerRef)
     {
-        //Mountain Building Card: Player damage increase
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        player.GetComponent<Unit>().damage += value;
-
-        Debug.Log($"Mountain effect called! {value} added!");
+        // Mountain Building Card: Player damage increase
+        Debug.Log($"Player HP before effect: {playerRef.GetComponent<Unit>().damage}");
+        playerRef.GetComponent<Unit>().damage += buildingCardSO.effectValue;
+        Debug.Log($"Player HP after effect: {playerRef.GetComponent<Unit>().damage}");
     }
-    public void CardEffectWater()
+    public void CardEffectWater(GameObject playerRef)
     {
-        //Water Building Card: Geeft de player een beter heal tijdens battel
+        // Water Building Card: Geeft de player een beter heal tijdens battle
         Debug.Log("Water effect called!");
+        Debug.Log($"Player HP before effect: {playerRef.GetComponent<Unit>().healBuff}");
+        playerRef.GetComponent<Unit>().healBuff = buildingCardSO.effectValue;
+        Debug.Log($"Player HP after effect: {playerRef.GetComponent<Unit>().healBuff}");
 
     }
 }

@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Water
   buildingImage: {fileID: -534932823, guid: 4c281c96b03abd543bd77d7612da8c53, type: 3}
-  width: 0
-  height: 0
+  effectValue: 5

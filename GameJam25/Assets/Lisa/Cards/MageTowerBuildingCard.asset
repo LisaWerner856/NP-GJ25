@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Mage Tower
   buildingImage: {fileID: 21300000, guid: edebe67b2e15a0e4492381790209cb73, type: 3}
-  width: 1
-  height: 1
+  effectValue: 5
