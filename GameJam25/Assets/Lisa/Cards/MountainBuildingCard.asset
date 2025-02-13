@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: MountainBuildingCard
   m_EditorClassIdentifier: 
   buildingName: Mountain
-  cardOutline: {fileID: -3013816226438125767, guid: 41da5aad6d483f24d9a9127388fd6c52, type: 3}
   buildingImage: {fileID: 834771140, guid: 4c281c96b03abd543bd77d7612da8c53, type: 3}
-  buildingTile: {fileID: 11400000, guid: 5368b80c4031bda489fbc42470303bd3, type: 2}
-  width: 1
-  height: 1
+  effectValue: 5

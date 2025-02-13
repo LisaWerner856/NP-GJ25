@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class BuildManager : MonoBehaviour
 {
+    public GameObject playerReference; // Player reference, to apply the card effects to.
+
     public Tilemap tilemap;
     public List<GameObject> cards;
     public List<GameObject> UICards;
@@ -105,7 +107,21 @@ public class BuildManager : MonoBehaviour
         if(tilePreview == null)
         {
             PreviewCard(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }       
+        }
+
+        if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Forest")
+        {
+            UICards[selectedCard].GetComponent<BuildingCard>().CardEffectForest(playerReference);
+        }
+        else if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Mountain")
+        {
+            UICards[selectedCard].GetComponent<BuildingCard>().CardEffectMountain(playerReference);
+        }
+        else if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Water")
+        {
+            UICards[selectedCard].GetComponent<BuildingCard>().CardEffectWater(playerReference);
+        }
+
     }
 
     public void RemoveCardFromList(int cardIndex)
@@ -117,8 +133,6 @@ public class BuildManager : MonoBehaviour
 
             Destroy(UICards[cardIndex]);
             UICards.RemoveAt(cardIndex);
-
-            Debug.Log(cardIndex);
 
             if (selectedCard >= cards.Count)
             {
