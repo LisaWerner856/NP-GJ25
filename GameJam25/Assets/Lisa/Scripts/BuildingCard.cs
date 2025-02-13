@@ -61,9 +61,9 @@ public class BuildingCard : MonoBehaviour
     {
         // Water Building Card: Geeft de player een beter heal tijdens battle
         Debug.Log("Water effect called!");
-        Debug.Log($"Player HP before effect: {playerRef.GetComponent<Unit>().healBuff}");
-        playerRef.GetComponent<Unit>().healBuff = buildingCardSO.effectValue;
-        Debug.Log($"Player HP after effect: {playerRef.GetComponent<Unit>().healBuff}");
+        //Debug.Log($"Player HP before effect: {playerRef.GetComponent<Unit>().healBuff}"); 
+        //playerRef.GetComponent<Unit>().healBuff = buildingCardSO.effectValue;
+        //Debug.Log($"Player HP after effect: {playerRef.GetComponent<Unit>().healBuff}");
 
     }
 }
