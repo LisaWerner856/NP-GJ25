@@ -39,6 +39,7 @@ public class BuildingCard : MonoBehaviour
     public void OnCardClick()
     {
         bm.PlaceCard(cardIndex);
+        this.transform.localScale = new Vector3(1.3f, 1.3f, 1f);
     }
 
     public void CardEffectForest(GameObject playerRef)
