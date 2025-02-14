@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerWaypointMovement : MonoBehaviour
 {
+    public RoundManager roundManager;
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float speed = 2f;
-    private int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
     public float currentSpeed;
 
     //Voor het pauseren van de player//
@@ -47,6 +48,7 @@ public class PlayerWaypointMovement : MonoBehaviour
             if (currentWaypointIndex >= waypoints.Length)
             {
                 currentWaypointIndex = 0;
+                roundManager.StartNewRound();
             }
         }
     }
