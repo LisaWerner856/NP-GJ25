@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST, SETUP}
 public class BattleSystem : MonoBehaviour
 {
+    public BuildManager bm;
     public BattleState state;
 
     public GameObject playerPrefab;
@@ -89,10 +90,14 @@ public class BattleSystem : MonoBehaviour
         {
             dialogeText.text = " You won the battle!!! ";
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0f);
             state = BattleState.INACTIVE;
             battleCanvas.SetActive(false);
             normalCanvas.SetActive(true);
+            // Drop Loot
+            Loot();
+            // Remove the player and enemy instances 
+            Debug.Log("Remove player and enemy units");
         }
         else if (state == BattleState.LOST)
         {
@@ -100,6 +105,14 @@ public class BattleSystem : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
         }
+
+    }
+
+    public void Loot()
+    {
+        Debug.Log("Drop loot");
+        GameObject lootItem = bm.cardLibrary[Random.Range(0, bm.cardLibrary.Count - 1)];
+        bm.cards.Add(lootItem);
     }
 
     IEnumerator EnemyTurn()

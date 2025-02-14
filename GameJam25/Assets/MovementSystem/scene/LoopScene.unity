@@ -1642,6 +1642,22 @@ PrefabInstance:
       propertyPath: playerReference
       value: 
       objectReference: {fileID: 911969479}
+    - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
+      propertyPath: cardLibrary.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
+      propertyPath: 'cardLibrary.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1170879374442085415, guid: 9652cf4867c1ac14e8e96b02bf5e0ac9, type: 3}
+    - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
+      propertyPath: 'cardLibrary.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7320351479463527075, guid: d22a1899531d0e748bd741fb3fdc1bf1, type: 3}
+    - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
+      propertyPath: 'cardLibrary.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8495236731432768142, guid: c76782456a114144a8b4bf54b0b974ed, type: 3}
     - target: {fileID: 9106369441253348412, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
       propertyPath: m_Name
       value: BuildManager
@@ -1713,6 +1729,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae30dda41ee2644ab46ba2e342c3a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1660934532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
+  m_PrefabInstance: {fileID: 1553617560}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c5a54453368b54e97463662a67e138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1683018454
@@ -2046,6 +2073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1c01b64662b8e4585c57353dcfb957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bm: {fileID: 1660934532}
   state: 1
   playerPrefab: {fileID: 6274434117647856466, guid: 91445dfe91fdac4448a552d45b08fce2, type: 3}
   prefabs:

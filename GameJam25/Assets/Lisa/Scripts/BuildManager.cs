@@ -9,6 +9,7 @@ public class BuildManager : MonoBehaviour
     public GameObject playerReference; // Player reference, to apply the card effects to.
 
     public Tilemap tilemap;
+    public List<GameObject> cardLibrary; //This will hold the card prefabs that can be spawned.
     public List<GameObject> cards;
     public List<GameObject> UICards;
 
