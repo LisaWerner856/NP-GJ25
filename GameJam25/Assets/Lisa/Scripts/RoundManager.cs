@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
+    public BattleSystem battlesystem;
+
+
     public Canvas canvas;
     public List<GameObject> enemies = new List<GameObject>(); 
     public List<Transform> possibleSpawnLocations = new List<Transform>();
     [SerializeField] private int spawnBuffer = 2; // Add this spawn buffer, so enemies don't spawn too close to the base.
+
+    private GameObject currentEnemy; 
 
     private void Start()
     {
@@ -24,5 +29,12 @@ public class RoundManager : MonoBehaviour
         //Instantiate(enemies[rndEnemy], possibleSpawnLocations[rndEnemy].position, Quaternion.identity);
         GameObject newEnemy = Instantiate(enemies[rndEnemy], canvas.transform);
         newEnemy.transform.position = new Vector3(possibleSpawnLocations[rndSpawnPos].position.x, possibleSpawnLocations[rndSpawnPos].position.y, 0);
+
+        battlesystem.prefab = enemies[rndEnemy];
+    }
+
+    public GameObject enemySpawned()
+    {
+        return Instantiate(currentEnemy);
     }
 }

@@ -3,13 +3,16 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST, SETUP}
 public class BattleSystem : MonoBehaviour
 {
-    public BuildManager bm;
+    public BuildManager buildManager;
+    public RoundManager roundManager;
     public BattleState state;
 
     public GameObject playerPrefab;
+    public GameObject prefab; //TEST
     public GameObject[] prefabs;
     public GameObject battleCanvas;
     public GameObject normalCanvas;
@@ -49,7 +52,10 @@ public class BattleSystem : MonoBehaviour
         playerUnit = playerGo.GetComponent<Unit>();
         print(playerUnit.name);
         GameObject enemyGo = Instantiate(prefabs[Random.Range(0, prefabs.Length)], enemyBattleStation);
+        //GameObject enemyGo = Instantiate(prefab, enemyBattleStation); // TESTING
+        Debug.Log($"enemy: {enemyGo}");
         enemyUnit = enemyGo.GetComponent<Unit>();
+        
         print(enemyUnit.name);
 
         dialogeText.text = " A " + enemyUnit.unitName + " aproaches. ";
@@ -76,11 +82,13 @@ public class BattleSystem : MonoBehaviour
         { 
             state = BattleState.WON;
             StartCoroutine(EndBatlle());
+            state = BattleState.INACTIVE;
         }
         else
         {
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
+            state = BattleState.INACTIVE;
         }
     }
     
@@ -97,7 +105,7 @@ public class BattleSystem : MonoBehaviour
             // Drop Loot
             Loot();
             // Remove the player and enemy instances 
-            Debug.Log("Remove player and enemy units");
+            Destroy(enemyUnit.gameObject);
         }
         else if (state == BattleState.LOST)
         {
@@ -111,8 +119,8 @@ public class BattleSystem : MonoBehaviour
     public void Loot()
     {
         Debug.Log("Drop loot");
-        GameObject lootItem = bm.cardLibrary[Random.Range(0, bm.cardLibrary.Count - 1)];
-        bm.cards.Add(lootItem);
+        GameObject lootItem = buildManager.cardLibrary[Random.Range(0, buildManager.cardLibrary.Count - 1)];
+        buildManager.cards.Add(lootItem);
     }
 
     IEnumerator EnemyTurn()
