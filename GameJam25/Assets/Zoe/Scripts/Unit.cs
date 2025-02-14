@@ -10,7 +10,12 @@ public class Unit : MonoBehaviour
     public int maxHp;
     public int currentHp;
 
-    //public int healBuff = 0; // Uncomment me to enable water healing card
+    public int healBuff = 0; // Uncomment me to enable water healing card
+
+    private void Start()
+    {
+        currentHp = maxHp;
+    }
 
     public bool TakeDamage(int dmg)
     {
@@ -25,7 +30,7 @@ public class Unit : MonoBehaviour
     public void Heal(int amount)
     {
         currentHp += amount;
-        //currentHp += (amount + healBuff); // Uncomment me to enable water healing card 
+        currentHp += (amount + healBuff); // Uncomment me to enable water healing card 
         if (currentHp > maxHp)
             currentHp = maxHp;
     }

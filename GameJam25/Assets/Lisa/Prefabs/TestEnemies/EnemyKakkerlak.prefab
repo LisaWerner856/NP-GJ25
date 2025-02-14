@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6486851574294178783}
   - component: {fileID: 4044588372697676587}
   - component: {fileID: 6109245969865985410}
+  - component: {fileID: 6838035586333473843}
   m_Layer: 0
   m_Name: EnemyKakkerlak
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4077150407454186070}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -931.47, y: -531.98, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,3 +163,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &6838035586333473843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077150407454186070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1358945dc4b314544b51f65ffa8fe703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Karkalak
+  unitLevel: 1
+  damage: 5
+  maxHp: 5
+  currentHp: 5

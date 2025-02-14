@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5859798300441327776}
   - component: {fileID: 3953716809242765524}
   - component: {fileID: 4974773202648181479}
+  - component: {fileID: 3779953684770844328}
   m_Layer: 0
   m_Name: EnemyFolder
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5813887124609325378}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -931.47, y: -531.98, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,3 +163,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &3779953684770844328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813887124609325378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1358945dc4b314544b51f65ffa8fe703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Folder
+  unitLevel: 1
+  damage: 5
+  maxHp: 10
+  currentHp: 10

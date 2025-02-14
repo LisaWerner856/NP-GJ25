@@ -9,7 +9,6 @@ public class EnterFight : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("wat geraakt");
             Destroy(collision.gameObject);
             
             battleSystem.state = BattleState.START;

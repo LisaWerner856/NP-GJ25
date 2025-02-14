@@ -1143,7 +1143,7 @@ MonoBehaviour:
   - {fileID: 2022998294}
   - {fileID: 1551675306}
   - {fileID: 434498042}
-  speed: 2
+  speed: 19
   currentWaypointIndex: 0
   currentSpeed: 0
   battleSystem: {fileID: 1926490856}
@@ -1320,6 +1320,7 @@ MonoBehaviour:
   damage: 0
   maxHp: 0
   currentHp: 0
+  healBuff: 0
 --- !u!1 &1021746859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,14 +2180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildManager: {fileID: 1660934532}
-  roundManager: {fileID: 1616530291}
   state: 1
   playerPrefab: {fileID: 6274434117647856466, guid: 91445dfe91fdac4448a552d45b08fce2, type: 3}
   prefab: {fileID: 0}
-  prefabs:
-  - {fileID: 3699811918420119265, guid: 41181da003f2d1e46979f57ffa6f536d, type: 3}
-  - {fileID: 8959690240658268667, guid: 63cf9d88b4312174f9222d9a50212549, type: 3}
-  - {fileID: 7110701299112486569, guid: 6401768253819664b920d93b6e2c8f0a, type: 3}
   battleCanvas: {fileID: 1579618651}
   normalCanvas: {fileID: 1298203746}
   playerBattleStation: {fileID: 1011376}
@@ -3367,7 +3363,7 @@ PrefabInstance:
       objectReference: {fileID: 1926490856}
     - target: {fileID: 3407722739531620811, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4410857799061341140, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_Name
@@ -3375,7 +3371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4410857799061341140, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4701160383473248478, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3383,7 +3379,7 @@ PrefabInstance:
       objectReference: {fileID: 1926490856}
     - target: {fileID: 4929649706335538362, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6144735371067234412, guid: 399013403262f0a449bf5d6fb8fdf56d, type: 3}
       propertyPath: m_AnchorMax.y

@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358945dc4b314544b51f65ffa8fe703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Monkey
+  unitName: Player
   unitLevel: 1
   damage: 5
   maxHp: 20
   currentHp: 20
+  healBuff: 0
 --- !u!1 &8023080997865731713
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +62,7 @@ GameObject:
   - component: {fileID: 4612839652256870675}
   - component: {fileID: 2068128172316432308}
   m_Layer: 0
-  m_Name: Monke
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 42d4cf8903d4ddb4ba83c11c914089d5, type: 3}
+  m_Sprite: {fileID: -1852390676, guid: 46a0696fbd9f5c64eb632cc399acf55f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

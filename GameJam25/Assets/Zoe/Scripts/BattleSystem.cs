@@ -4,16 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
-public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST, SETUP}
+public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST, SETUP }
 public class BattleSystem : MonoBehaviour
 {
     public BuildManager buildManager;
-    public RoundManager roundManager;
     public BattleState state;
 
     public GameObject playerPrefab;
     public GameObject prefab; //TEST
-    public GameObject[] prefabs;
+    //public GameObject[] prefabs;
     public GameObject battleCanvas;
     public GameObject normalCanvas;
 
@@ -29,12 +28,12 @@ public class BattleSystem : MonoBehaviour
     public TMP_Text dialogeText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    { 
+    {
         state = BattleState.INACTIVE;
 
         normalCanvas.SetActive(true);
         battleCanvas.SetActive(false);
-        
+
     }
 
     public void Update()
@@ -50,20 +49,17 @@ public class BattleSystem : MonoBehaviour
     {
         GameObject playerGo = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGo.GetComponent<Unit>();
-        print(playerUnit.name);
-        GameObject enemyGo = Instantiate(prefabs[Random.Range(0, prefabs.Length)], enemyBattleStation);
-        //GameObject enemyGo = Instantiate(prefab, enemyBattleStation); // TESTING
-        Debug.Log($"enemy: {enemyGo}");
+
+        GameObject enemyGo = Instantiate(prefab, enemyBattleStation); 
+        enemyGo.transform.position = enemyBattleStation.position; 
         enemyUnit = enemyGo.GetComponent<Unit>();
-        
-        print(enemyUnit.name);
 
         dialogeText.text = " A " + enemyUnit.unitName + " aproaches. ";
 
         playerHud.SetHUD(playerUnit);
         enemyHud.SetHUD(enemyUnit);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
@@ -76,10 +72,10 @@ public class BattleSystem : MonoBehaviour
         enemyHud.SetHp(enemyUnit.currentHp);
         dialogeText.text = " The attack was succesful. ";
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         if (isDead)
-        { 
+        {
             state = BattleState.WON;
             StartCoroutine(EndBatlle());
             state = BattleState.INACTIVE;
@@ -91,21 +87,24 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.INACTIVE;
         }
     }
-    
+
     IEnumerator EndBatlle()
     {
         if (state == BattleState.WON)
         {
+            if(enemyUnit != null)
+            {
+                Loot();
+                Destroy(enemyUnit.gameObject);
+            }
             dialogeText.text = " You won the battle!!! ";
 
-            yield return new WaitForSeconds(0f);
             state = BattleState.INACTIVE;
             battleCanvas.SetActive(false);
             normalCanvas.SetActive(true);
-            // Drop Loot
-            Loot();
-            // Remove the player and enemy instances 
-            Destroy(enemyUnit.gameObject);
+
+            yield return new WaitForSeconds(0f);
+            
         }
         else if (state == BattleState.LOST)
         {
