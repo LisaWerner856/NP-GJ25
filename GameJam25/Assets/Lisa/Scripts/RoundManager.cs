@@ -21,7 +21,6 @@ public class RoundManager : MonoBehaviour
 
     public void StartNewRound()
     {
-        Debug.Log("New Round Started!");
         // Spawn enemies, increase their level
         int rndEnemy = Random.Range(0, enemies.Count - 1);
         int rndSpawnPos = Random.Range(0 + spawnBuffer, possibleSpawnLocations.Count - 1);

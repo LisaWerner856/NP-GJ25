@@ -1,9 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 public enum BattleState { INACTIVE, START, PLAYERTURN, ENEMYTURN, WON, LOST, SETUP }
 public class BattleSystem : MonoBehaviour
 {
@@ -11,8 +8,7 @@ public class BattleSystem : MonoBehaviour
     public BattleState state;
 
     public GameObject playerPrefab;
-    public GameObject prefab; //TEST
-    //public GameObject[] prefabs;
+    public GameObject prefab; 
     public GameObject battleCanvas;
     public GameObject normalCanvas;
 
@@ -168,14 +164,18 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != BattleState.PLAYERTURN)
             return;
+        
+        // TODO: FIX HERE
+        StartCoroutine(PlayerAttack()); // This is why the button can spam, while the player turn state is active, the player can infinitely press the attack button and the method gets called just as many times.
 
-        StartCoroutine(PlayerAttack());
     }
 
     public void OnHealButton()
     {
         if (state != BattleState.PLAYERTURN)
             return;
+
+        // Same thing as in the OnAttackButton
         StartCoroutine(PlayerHeal());
     }
 }

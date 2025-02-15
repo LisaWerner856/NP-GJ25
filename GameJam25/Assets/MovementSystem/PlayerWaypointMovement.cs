@@ -12,7 +12,7 @@ public class PlayerWaypointMovement : MonoBehaviour
     public BattleSystem battleSystem;
     void Start()
     {
-        currentSpeed = speed;
+        currentSpeed = 0;
     }
 
     public void MoventStops()
