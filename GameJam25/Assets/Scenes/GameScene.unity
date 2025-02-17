@@ -1189,7 +1189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1538264939
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1852390676, guid: 46a0696fbd9f5c64eb632cc399acf55f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1719,16 +1719,16 @@ PrefabInstance:
       objectReference: {fileID: 911969479}
     - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
       propertyPath: cards.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
       propertyPath: 'cards.Array.data[0]'
       value: 
-      objectReference: {fileID: 1170879374442085415, guid: 9652cf4867c1ac14e8e96b02bf5e0ac9, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
       propertyPath: 'cards.Array.data[1]'
       value: 
-      objectReference: {fileID: 7320351479463527075, guid: d22a1899531d0e748bd741fb3fdc1bf1, type: 3}
+      objectReference: {fileID: 8495236731432768142, guid: c76782456a114144a8b4bf54b0b974ed, type: 3}
     - target: {fileID: 2532364686804395311, guid: 5b785522e5440754abfceee3f4652da1, type: 3}
       propertyPath: 'cards.Array.data[2]'
       value: 
@@ -2115,11 +2115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1581679131877283294, guid: cdc788945afd7e1419779cf67c7cc309, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1320
+      value: 1047.1399
       objectReference: {fileID: 0}
     - target: {fileID: 1581679131877283294, guid: cdc788945afd7e1419779cf67c7cc309, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 173.2012
       objectReference: {fileID: 0}
     - target: {fileID: 1581679131877283294, guid: cdc788945afd7e1419779cf67c7cc309, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2629,7 +2629,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1537611161
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

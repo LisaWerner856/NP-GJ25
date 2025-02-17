@@ -115,7 +115,7 @@ public class BattleSystem : MonoBehaviour
     {
         Debug.Log("Drop loot");
         GameObject lootItem = buildManager.cardLibrary[Random.Range(0, buildManager.cardLibrary.Count - 1)];
-        buildManager.cards.Add(lootItem);
+        buildManager.AddCardToList(lootItem);
     }
 
     IEnumerator EnemyTurn()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,11 +11,10 @@ public class BuildManager : MonoBehaviour
 
     public Tilemap tilemap;
     public List<GameObject> cardLibrary; //This will hold the card prefabs that can be spawned.
-    public List<GameObject> cards;
-    public List<GameObject> UICards;
+    public List<BuildingCard> cards;
 
 
-    public int selectedCard = 0; // this should be based on the cards in the inventory later.
+    [SerializeField] private int selectedCard = 0; // this should be based on the cards in the inventory later.
 
     public Transform cardGridUI;
     public GameObject tilePreview;
@@ -22,7 +22,9 @@ public class BuildManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AddMultipleCards();
+        AddCardToList(cardLibrary[0]);
+        AddCardToList(cardLibrary[1]);
+        AddCardToList(cardLibrary[2]);
     }
     private void Update()
     {
@@ -30,7 +32,7 @@ public class BuildManager : MonoBehaviour
         {
             tilePreview.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tilePreview.transform.position = new Vector3(tilePreview.transform.position.x, tilePreview.transform.position.y, 0f);
-            
+
             if (Input.GetMouseButtonDown(0))
             {
                 Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -44,55 +46,35 @@ public class BuildManager : MonoBehaviour
                 Destroy(tilePreview);
             }
         }
-
-        // if the cards list doesn't have the same count as the ui element list, update the ui (draw the whole thing again)
-        if(cards.Count != UICards.Count)
-        {
-            int lastIndex = UICards.Count - 1;
-            AddSingleCard(cards[lastIndex]);
-        }
-
-        // TODO: If a new card was added, update the ui;
     }
 
-    private void AddMultipleCards()
+    public void AddCardToList(GameObject card)
     {
-        int i = 0;
+        BuildingCard newCard = card.GetComponent<BuildingCard>();
+        newCard.cardIndex = cards.Count;
+        cards.Add(newCard);
 
-        foreach (GameObject card in cards)
-        {
-            GameObject UICard = Instantiate(card);
-            UICard.GetComponent<BuildingCard>().cardIndex = i;
-            UICard.transform.SetParent(cardGridUI);
-            UICard.transform.localScale = new Vector3(1f, 1f, 1f);
-
-            UICards.Add(UICard);
-
-            i++;
-        }
-    }
-
-    public void AddSingleCard(GameObject card)
-    {
+        // draw cards to UI
         GameObject UICard = Instantiate(card);
-        UICard.GetComponent<BuildingCard>().cardIndex = cards.Count - 1;
         UICard.transform.SetParent(cardGridUI);
         UICard.transform.localScale = new Vector3(1f, 1f, 1f);
+        
+        UpdateCardsList();
 
-        UICards.Add(UICard);
     }
-    public void RenderUITiles()
+
+    public void UpdateCardsList()
     {
-        int i = 0;
-        foreach (GameObject card in UICards)
+        // go through all cards and update their index
+        for (int i = 0; i < cards.Count; i++)
         {
-            card.transform.localScale = new Vector3(1f, 1f, 1f);
-            card.GetComponent<BuildingCard>().cardIndex = i;
-            i++;
+            cards[i].cardIndex = i;
         }
     }
+
     public void PreviewCard(Vector3 position)
     {
+        Debug.Log("Previewing card!");
         // Create the tile preview
         tilePreview = new GameObject("TilePreview");
         tilePreview.transform.position = position;
@@ -105,44 +87,53 @@ public class BuildManager : MonoBehaviour
     public void PlaceCard(int index)
     {
         selectedCard = index;
-        if(tilePreview == null)
+        if (tilePreview == null)
         {
             PreviewCard(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-
-        if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Forest")
-        {
-            UICards[selectedCard].GetComponent<BuildingCard>().CardEffectForest(playerReference);
-        }
-        else if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Mountain")
-        {
-            UICards[selectedCard].GetComponent<BuildingCard>().CardEffectMountain(playerReference);
-        }
-        else if (UICards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Water")
-        {
-            UICards[selectedCard].GetComponent<BuildingCard>().CardEffectWater(playerReference);
-        }
+        Debug.Log("Placing card!");
 
     }
 
-    public void RemoveCardFromList(int cardIndex)
+    //// These are hardcoded card effects, they go into place card later.
+    //    //if (cards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Forest")
+    //    //{
+    //    //    cards[selectedCard].GetComponent<BuildingCard>().CardEffectForest(playerReference);
+    //    //}
+    //    //else if (cards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Mountain")
+    //    //{
+    //    //    cards[selectedCard].GetComponent<BuildingCard>().CardEffectMountain(playerReference);
+    //    //}
+    //    //else if (cards[selectedCard].GetComponent<BuildingCard>().buildingCardSO.buildingName == "Water")
+    //    //{
+    //    //    cards[selectedCard].GetComponent<BuildingCard>().CardEffectWater(playerReference);
+    //    //}
+
+    public void RemoveCardFromList(int selectedCardIndex)
     {
-        // Remove the card from both the cards list and the UI list
-        if (cardIndex >= 0 && cardIndex < cards.Count)
-        {
-            cards.RemoveAt(cardIndex);
+        Debug.Log($"Trying to remove {cards[selectedCard]}");
+        // remove gameobject at card pannel.
+        GameObject cardToRemove = cardGridUI.GetChild(selectedCard).gameObject;
+        Destroy(cardToRemove);
+        cards.Remove(cards[selectedCard]);
+        //UpdateCardsList();
 
-            Destroy(UICards[cardIndex]);
-            UICards.RemoveAt(cardIndex);
-
-            if (selectedCard >= cards.Count)
-            {
-                selectedCard = cards.Count - 1; // Ensure selectedCard is within bounds
-                if (selectedCard < 0) selectedCard = 0; // If no cards are left, reset to 0
-            }
-
-
-            RenderUITiles();
-        }
     }
+
+    //public void RemoveCardFromList(int cardIndex)
+    //{
+    //    // Remove the card from both the cards list and the UI list
+    //    if (cardIndex >= 0 && cardIndex < cards.Count)
+    //    {
+    //        cards.RemoveAt(cardIndex);
+
+    //        if (selectedCard >= cards.Count)
+    //        {
+    //            selectedCard = cards.Count - 1; // Ensure selectedCard is within bounds
+    //            if (selectedCard < 0) selectedCard = 0; // If no cards are left, reset to 0
+    //        }
+
+    //        RenderUITiles();
+    //    }
+    //}
 }
